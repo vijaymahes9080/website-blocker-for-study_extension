@@ -141,6 +141,13 @@
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
         document.getElementById('quote').textContent = `"${randomQuote.text}"`;
         document.getElementById('author').textContent = `- ${randomQuote.author}`;
+
+        // Parse query parameter for the blocked URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const blockedUrl = urlParams.get('url');
+        if (blockedUrl) {
+            document.querySelector('.container p').innerHTML = `The site <strong>${blockedUrl}</strong> is blocked while you are studying.`;
+        }
     </script>
 </body>
 
